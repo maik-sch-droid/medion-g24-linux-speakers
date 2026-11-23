@@ -1,0 +1,11 @@
+Package: medion-g24-speakers
+Version: 0.1.0
+Section: sound
+Priority: optional
+Architecture: all
+Maintainer: Medion G24 speakers contributors <314253099+maik-sch-droid@users.noreply.github.com>
+Depends: python3 (>= 3.9), systemd, init-system-helpers (>= 1.56), kmod
+Description: Restore the internal speakers on a hardware-matched Medion G24
+ This startup service checks the tested Medion G24 mainboard and BIOS, then
+ applies a verified SMBus register correction for silent internal speakers.
+ A systemd timer starts the check during boot.
