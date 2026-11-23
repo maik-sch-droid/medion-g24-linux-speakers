@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+if [ "$1" = remove ] && [ -z "${DPKG_ROOT:-}" ] && [ -d /run/systemd/system ]; then
+    deb-systemd-invoke stop medion-g24-speakers.timer medion-g24-speakers.service
+fi

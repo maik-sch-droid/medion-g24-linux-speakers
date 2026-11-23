@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+
+case "$1" in
+    configure|abort-upgrade|abort-deconfigure|abort-remove) ;;
+    *) exit 0 ;;
+esac
+
+timer=medion-g24-speakers.timer
+if deb-systemd-helper --quiet was-enabled "$timer"; then
+    deb-systemd-helper enable "$timer" >/dev/null
+else
+    deb-systemd-helper update-state "$timer" >/dev/null
+fi
+
+if [ -z "${DPKG_ROOT:-}" ] && [ -d /run/systemd/system ]; then
+    systemctl --system daemon-reload
+    if [ -n "${2:-}" ]; then
+        deb-systemd-invoke restart "$timer"
+    else
+        deb-systemd-invoke start "$timer"
+    fi
+fi
