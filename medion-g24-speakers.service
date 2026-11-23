@@ -1,0 +1,18 @@
+[Unit]
+Description=Restore the Medion G24 internal speaker setting
+ConditionPathExists=/sys/class/dmi/id/board_name
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStartPre=+/usr/libexec/medion-g24-speakers --prepare
+ExecStart=/usr/libexec/medion-g24-speakers
+TimeoutStartSec=21min
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH

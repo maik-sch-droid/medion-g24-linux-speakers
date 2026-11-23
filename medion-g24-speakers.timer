@@ -1,0 +1,10 @@
+[Unit]
+Description=Check the Medion G24 internal speakers after startup
+
+[Timer]
+OnBootSec=20s
+AccuracySec=1s
+Unit=medion-g24-speakers.service
+
+[Install]
+WantedBy=timers.target
