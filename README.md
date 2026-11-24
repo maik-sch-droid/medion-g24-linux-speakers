@@ -4,7 +4,7 @@ On the tested Medion G24, Linux played audio after a cold boot, but the internal
 
 ## Hardware
 
-The correction was measured on one Medion G24 running Kubuntu 26.04.1 with kernel `7.0.0-43-generic`.
+The correction was measured on one Medion G24 running Kubuntu 26.04.1 with kernel `7.0.0-43-generic`. Windows 10 was previously installed on this same unit, and its internal speakers worked under Windows 10.
 
 | Component | Tested configuration |
 | --- | --- |
